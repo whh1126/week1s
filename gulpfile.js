@@ -43,4 +43,4 @@ gulp.task('watch', function() {
 
     })
     //默认任务
-gulp.task('default', gulp.series('uglify', 'sass', 'watch'))
+gulp.task('default', gulp.series('uglify', 'sass', 'bulidjs', 'bulidcss', 'watch'))
