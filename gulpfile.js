@@ -34,6 +34,13 @@ gulp.task('bulidcss', function() {
         .pipe(gulp.dest('./bulid/css'))
 })
 gulp.task('bulidjs', function() {
-    return gulp.src('./src/js/*.js')
-        .pipe(gulp.dest('./bulid/js'))
-})
+        return gulp.src('./src/js/*.js')
+            .pipe(gulp.dest('./bulid/js'))
+    })
+    //监听事件
+gulp.task('watch', function() {
+        return gulp.watch(["./src/scss/*.scss", "'./src/js/*.js'"], gulp.series('sass', 'uglify'))
+
+    })
+    //默认任务
+gulp.task('default', gulp.series('uglify', 'sass', 'watch'))
